@@ -1,0 +1,31 @@
+%div{class: "container main-container"}
+  %div{class: "row"}
+    %div{class: "twelve columns"}
+      %h3{class: "index-header"} Your Todo List
+  %hr
+  %div{class: "row"}
+    %div{class: "twelve columns"}
+    - unless @todos.empty?
+      %table{class: "u-full-width"}
+        - @todos.each.with_index(1) do |todo, index|
+          %tr
+            %td
+              %h1= index
+            %td
+              %a{href:"todos/#{todo.id}", class: "task-title-link"}
+                %h3= todo.name
+            %td
+              - if todo.done == "yes"
+                %i{class: "fa fa-check", style:"color: green; font-size: 50px"}
+              - else
+                %i{class: "fa fa-close", style:"color: red; font-size: 50px"}
+            %td
+              %a{href: "todos/edit/#{todo.id}", class: "button button-primary"}
+                edit
+            %td
+              %form{action: "todos/destroy/#{todo.id}", method: "POST"}
+                %input{type: "hidden", name: "_method", value: "DELETE"}
+                %input{type:"submit", value: "delete", class: "button-primary button"}
+    - else
+      %h1
+        %em Empty

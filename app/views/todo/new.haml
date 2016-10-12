@@ -1,0 +1,19 @@
+%div{class: "container main-container"}
+  %div{class: "row"}
+    %h1 New Todo
+    %hr
+
+  %div{class: "row"}
+    %form{action: "/todos/create",method:"POST"}
+      %p
+        %label Task
+        %input{name: "todo[name]", type: "text"}
+      %p
+        %label Done?
+        %select{style:"width: 145px", name: "todo[done]"}
+          %option{value:"no"} No
+          %option{value:"yes"} Yes
+
+      %div{class: "row"}
+        %div{class: "twelve columns"}
+          %input{type: "submit", class: "button-primary"}

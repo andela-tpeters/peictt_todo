@@ -1,0 +1,20 @@
+%div{class: "container main-container"}
+  %div{class: "row"}
+    %div{class: "twelve columns"}
+      %h1 Task Todo: "#{@todo.name}"
+
+    %div{class: "twelve columns"}
+      %h3
+        Done?:
+        %span
+          - if @todo.done == "yes"
+            %i{class: "fa fa-check", style:"color: green; font-size: 50px"}
+          - else
+            %i{class: "fa fa-close", style:"color: red; font-size: 50px"}
+    %div{class: "row"}
+      %div{class: "two columns"}
+        %a{class: "button button-primary", href: "todos/edit/#{@todo.id}"} edit
+      %div{class: "two columns"}
+        %form{action: "todos/destroy/#{@todo.id}", method: "POST"}
+          %input{type: "hidden", name: "_method", value: "DELETE"}
+          %input{type:"submit", value: "delete", class: "button"}

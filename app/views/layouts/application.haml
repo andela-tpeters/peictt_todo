@@ -1,0 +1,25 @@
+%head
+  %title Peictt Todo
+  %link{href:"//fonts.googleapis.com/css?family=Raleway:400,300,600",rel:"stylesheet",type:"text/css"}
+  %link{rel: "stylesheet",href:"https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"}
+  %link{rel: "stylesheet",href: "/assets/css/style.css"}
+  %script{src:"https://use.fontawesome.com/2a566bccf1.js"}
+%body
+  %header{class: "container"}
+    %nav{class: "row"}
+      %div{class: "three columns"}
+        %h2
+          Peictt
+      %div{class: "nine columns"}
+        %ul{class: "top-nav twelve columns u-pull-right"}
+          %li{class: ""}
+            %a{href: "/", class: "button button-primary"} Home
+          %li{class: ""}
+            %a{href: "/todos", class: "button"} My Todos
+          %li{class: ""}
+            %a{href: "/todos/new", class: "button"} New Todo
+  %hr
+  = yield
+  %hr
+  %footer{class: "container footer-cont"}
+    %p &copy; Peictt, 2016

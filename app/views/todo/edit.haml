@@ -1,0 +1,18 @@
+%div{class: "container main-container"}
+  %div{class: "row"}
+    %h1 Edit Todo
+    %hr
+
+  %div{class: "row"}
+    %form{action: "todos/update/#{@todo.id}",method:"POST"}
+      %input{name: "_method", type: "hidden",value:"PUT"}
+      %p
+        %label Title
+        %input{name: "todo[name]", type: "text",value:"#{@todo.name}"}
+      %p
+        %label Done?
+        %select{style:"width: 145px", name: "todo[done]"}
+          %option{@todo.done == "no" ? {selected: ""} : {}, value:"no"} No
+          %option{ @todo.done == "yes" ? {selected: ""} : {},value:"yes"} Yes
+
+      %input{type: "submit", class: "button-primary"}
